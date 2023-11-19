@@ -55,7 +55,29 @@
     "noEmit": true,
     // :::: path :::: //
     "baseUrl": "./src",
-    "paths": {},
+    "paths": {
+      "@components/*": [
+        "./components/*"
+      ],
+      "@pages/*": [
+        "./pages/*"
+      ],
+      "@store/*": [
+        "./store/*"
+      ],
+      "@styles/*": [
+        "./styles/*"
+      ],
+      "@hooks/*": [
+        "./hooks/*"
+      ],
+      "@types/*": [
+        "./types/*"
+      ],
+      "@assets/*": [
+        "./assets/*"
+      ]
+    },
     "typeRoots": [
       "@types",
       "./node_modules/@types"

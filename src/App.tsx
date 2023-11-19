@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Home } from 'pages/Home/Home';
+import {Home} from '@pages/Home/Home';
 
 const App: React.FC = () => {
   return (
@@ -16,4 +16,4 @@ const Container = styled.div`
   height: 100vh;
 `;
 
-export { App };
+export {App};

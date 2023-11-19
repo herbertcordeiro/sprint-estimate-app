@@ -1,6 +1,6 @@
-import { RecoilRoot } from 'recoil';
+import {RecoilRoot} from 'recoil';
 
-const RecoilProvider = ({ children }) => {
+const RecoilProvider = ({children}) => {
   return <RecoilRoot>{children}</RecoilRoot>;
 };
 

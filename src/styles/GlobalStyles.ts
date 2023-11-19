@@ -1,9 +1,9 @@
-import { createGlobalStyle } from 'styled-components';
+import {createGlobalStyle} from 'styled-components';
 
-import LightFont from '../assets/fonts/LexendDeca-Light.ttf';
-import MediumFont from '../assets/fonts/LexendDeca-Medium.ttf';
-import RegularFont from '../assets/fonts/LexendDeca-Regular.ttf';
-import ExtraBoldFont from '../assets/fonts/LexendDeca-ExtraBold.ttf';
+import LightFont from '@assets/fonts/LexendDeca-Light.ttf';
+import MediumFont from '@assets/fonts/LexendDeca-Medium.ttf';
+import RegularFont from '@assets/fonts/LexendDeca-Regular.ttf';
+import ExtraBoldFont from '@assets/fonts/LexendDeca-ExtraBold.ttf';
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -46,4 +46,4 @@ const GlobalStyles = createGlobalStyle`
 
 `;
 
-export { GlobalStyles };
+export {GlobalStyles};

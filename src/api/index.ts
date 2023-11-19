@@ -1,5 +1,5 @@
 import axios from 'axios';
-import type { DefaultResponse } from 'axios';
+import type {DefaultResponse} from 'axios';
 
 /**
  * Request Success Handler

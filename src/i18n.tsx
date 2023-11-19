@@ -1,11 +1,11 @@
 import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
+import {initReactI18next} from 'react-i18next';
 
-import { en, pt } from './assets/translations';
+import {en, pt} from '@assets/translations';
 
 const resources = {
-  en: { translation: en },
-  pt: { translation: pt },
+  en: {translation: en},
+  pt: {translation: pt},
 };
 
 i18n.use(initReactI18next).init({
@@ -21,4 +21,4 @@ i18n.use(initReactI18next).init({
   },
 });
 
-export { i18n };
+export {i18n};
