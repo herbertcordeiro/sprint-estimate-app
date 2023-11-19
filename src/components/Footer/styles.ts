@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.footer`
@@ -21,4 +22,8 @@ export const Text = styled.p`
   color: ${({theme}) => theme.COLORS.GRAY_ACTIVE};
   font-family: ${({theme}) => theme.FONTS.REGULAR};
   font-size: 12px;
+`;
+
+export const CustomLink = styled(Link)`
+  text-decoration: none;
 `;

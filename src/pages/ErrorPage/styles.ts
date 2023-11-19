@@ -6,5 +6,14 @@ export const Container = styled.div`
   height: 100vh;
   align-items: center;
   justify-content: center;
-  background-color: ${({theme}) => theme.COLORS.PRIMARY_ACTIVE};
+  flex-direction: column;
+  background-color: ${({theme}) => theme.COLORS.LIGHT_ACTIVE};
+`;
+
+export const Text = styled.text`
+  font-size: 28px;
+  margin-top: 30px;
+  color: ${({theme}) => theme.COLORS.DARK_PRIMARY_ACTIVE};
+  font-family: ${({theme}) => theme.FONTS.REGULAR};
+  text-transform: uppercase;
 `;

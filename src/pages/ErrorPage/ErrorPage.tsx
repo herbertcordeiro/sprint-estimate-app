@@ -1,11 +1,17 @@
 import React from 'react';
 
-import {Container} from './styles';
+import {useTranslation} from 'react-i18next';
+
+import Error404 from 'assets/images/error404.svg';
+import {Container, Text} from './styles';
 
 const ErrorPage: React.FC = () => {
+  const [t] = useTranslation();
+
   return (
     <Container>
-      <h1>Error 404!</h1>
+      <img src={Error404} height={600} />
+      <Text>{t('page-not-found')}</Text>
     </Container>
   );
 };
