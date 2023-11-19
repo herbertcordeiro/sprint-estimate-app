@@ -1,19 +1,30 @@
 import styled from 'styled-components';
+import {Outlet} from 'react-router-dom';
 
-import {Home} from '@pages/Home/Home';
+import {Header} from '@components/Header/Header';
+import {Footer} from '@components/Footer/Footer';
 
 const App: React.FC = () => {
   return (
     <Container>
-      <Home />
+      <Header />
+      <Content>
+        <Outlet />
+      </Content>
+      <Footer />
     </Container>
   );
 };
 
 const Container = styled.div`
   display: flex;
-  width: 100vw;
-  height: 100vh;
+  flex-direction: column;
+  min-height: 100vh;
+`;
+
+const Content = styled.main`
+  display: flex;
+  flex: 1;
 `;
 
 export {App};

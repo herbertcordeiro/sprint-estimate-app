@@ -1,4 +1,4 @@
-export const Theme = {
+export const theme = {
   COLORS: {
     PRIMARY_ACTIVE: '#5E75FB',
     LIGHT_PRIMARY_ACTIVE: '#475DDB',
@@ -11,6 +11,7 @@ export const Theme = {
     DARK_LIGHT_ACTIVE: '#FAFAFC',
 
     GRAY_ACTIVE: '#444657',
+    SECONDARY_GRAY: '#BDC5CA',
     LIGHT_GRAY: '#F2F5F9',
 
     TRANSPARENT: 'transparent',
