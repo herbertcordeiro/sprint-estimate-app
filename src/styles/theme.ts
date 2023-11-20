@@ -14,6 +14,7 @@ export const theme = {
     SECONDARY_GRAY: '#BDC5CA',
     LIGHT_GRAY: '#F2F5F9',
 
+    DARK_OPACITY: '#00000080',
     TRANSPARENT: 'transparent',
   },
 

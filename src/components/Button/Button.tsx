@@ -9,7 +9,8 @@ interface ButtonProps {
   text: string;
   type?: ButtonType;
   disabled?: boolean;
-  route: string;
+  route?: string;
+  onClick?: () => void;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -18,7 +19,8 @@ const Button: React.FC<ButtonProps> = ({
   text,
   type = ButtonType.Primary,
   disabled = false,
-  route,
+  route = '',
+  onClick,
 }) => {
   const getButtonStyles = () => {
     switch (type) {
@@ -39,6 +41,12 @@ const Button: React.FC<ButtonProps> = ({
 
   const buttonStyles = getButtonStyles();
 
+  const handleButtonClick = () => {
+    if (onClick) {
+      onClick();
+    }
+  };
+
   return (
     <StyledLinkButton
       to={route}
@@ -46,6 +54,7 @@ const Button: React.FC<ButtonProps> = ({
       width={width}
       height={height}
       disabled={disabled}
+      onClick={handleButtonClick}
     >
       {text}
     </StyledLinkButton>
