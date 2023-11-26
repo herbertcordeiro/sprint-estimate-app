@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 
 import {localStorageService} from '@services/localStorage.service';
+import {showToast} from '@utils/toastUtils';
 import {ButtonType, SimpleModal} from '@models/common.models';
 import {Modal} from '@components/Modal/Modal';
 import {TextInput} from '@components/TextInput/TextInput';
@@ -25,6 +26,7 @@ const CreateUserModal: React.FC<SimpleModal> = ({isOpen, onClose}) => {
       };
 
       await localStorageService.setItem('user', user);
+      showToast(t('user-created'), 'success');
       onClose();
     }
   };

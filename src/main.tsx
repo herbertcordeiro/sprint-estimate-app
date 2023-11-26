@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {ThemeProvider} from 'styled-components';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
+import {ToastContainer} from 'react-toastify';
 
 import 'i18n';
 import {App} from 'App';
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <GlobalStyles />
+    <ToastContainer />
     <QueryProvider>
       <RecoilProvider>
         <ThemeProvider theme={theme}>

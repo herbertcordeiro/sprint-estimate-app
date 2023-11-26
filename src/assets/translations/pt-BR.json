@@ -17,5 +17,7 @@
   "room-name": "Nome da sala",
   "enter-room-name": "Digite o nome da sala",
   "create": "Criar",
-  "join": "Entrar"
+  "join": "Entrar",
+  "user-created": "Usuário criado com sucesso!",
+  "room-created": "Sala criada com sucesso!"
 }

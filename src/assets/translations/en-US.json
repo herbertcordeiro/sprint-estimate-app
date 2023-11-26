@@ -17,5 +17,7 @@
   "room-name": "Room name",
   "enter-room-name": "Enter room name",
   "create": "Create",
-  "join": "Join"
+  "join": "Join",
+  "user-created": "User created successfully!",
+  "room-created": "Room created successfully!"
 }

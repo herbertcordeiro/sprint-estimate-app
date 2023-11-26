@@ -1,3 +1,5 @@
+import 'react-toastify/dist/ReactToastify.css';
+
 import {createGlobalStyle} from 'styled-components';
 
 import LightFont from '@assets/fonts/LexendDeca-Light.ttf';

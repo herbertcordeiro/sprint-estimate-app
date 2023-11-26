@@ -4,6 +4,7 @@ import {useNavigate} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 
 import {ButtonType, SimpleModal} from '@models/common.models';
+import {showToast} from '@utils/toastUtils';
 import {Modal} from '@components/Modal/Modal';
 import {TextInput} from '@components/TextInput/TextInput';
 import {Button} from '@components/Button/Button';
@@ -20,8 +21,10 @@ const CreateRoomModal: React.FC<SimpleModal> = ({isOpen, onClose}) => {
 
   const handleSaveRoom = () => {
     if (inputValue) {
+      showToast(t('room-created'), 'success');
       onClose();
       navigate('room');
+      // window.location.reload();
     }
   };
 
