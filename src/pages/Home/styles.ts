@@ -25,11 +25,3 @@ export const SubTitle = styled.text`
   color: ${({theme}) => theme.COLORS.GRAY_ACTIVE};
   font-family: ${({theme}) => theme.FONTS.REGULAR};
 `;
-
-export const ModalOptions = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: row;
-  gap: 10px;
-  margin-top: 30px;
-`;

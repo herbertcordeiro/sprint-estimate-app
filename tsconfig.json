@@ -62,9 +62,6 @@
       "@pages/*": [
         "./pages/*"
       ],
-      "@store/*": [
-        "./store/*"
-      ],
       "@styles/*": [
         "./styles/*"
       ],
@@ -79,6 +76,12 @@
       ],
       "@models/*": [
         "./models/*"
+      ],
+      "@utils/*": [
+        "./utils/*"
+      ],
+      "@services/*": [
+        "./services/*"
       ]
     },
     "typeRoots": [

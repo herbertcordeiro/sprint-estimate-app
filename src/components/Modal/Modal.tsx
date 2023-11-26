@@ -2,13 +2,12 @@ import React, {ReactNode} from 'react';
 
 import {FiX} from 'react-icons/fi';
 
+import {SimpleModal} from '@models/common.models';
 import {Separator} from '@components/Separator/Separator';
 import {ModalOverlay, ModalContainer, CloseButton, Header, Title} from './styles';
 
-interface ModalProps {
+interface ModalProps extends SimpleModal {
   title: string;
-  isOpen: boolean;
-  onClose: () => void;
   children: ReactNode;
 }
 
@@ -18,8 +17,8 @@ const Modal: React.FC<ModalProps> = ({title, isOpen, onClose, children}) => {
   }
 
   return (
-    <ModalOverlay>
-      <ModalContainer>
+    <ModalOverlay isOpen={isOpen}>
+      <ModalContainer isOpen={isOpen}>
         <Header>
           <Title>{title}</Title>
           <CloseButton onClick={onClose}>

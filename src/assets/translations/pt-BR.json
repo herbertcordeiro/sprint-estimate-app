@@ -12,5 +12,10 @@
   "send": "Enviar",
   "cancel": "Cancelar",
   "name": "Nome",
-  "enter-your-name": "Digite seu nome"
+  "enter-your-name": "Digite o seu nome",
+  "create-new-room": "Criar nova sala",
+  "room-name": "Nome da sala",
+  "enter-room-name": "Digite o nome da sala",
+  "create": "Criar",
+  "join": "Entrar"
 }
