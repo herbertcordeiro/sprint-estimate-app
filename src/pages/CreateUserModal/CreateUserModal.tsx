@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 
-import {useNavigate} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 
 import {localStorageService} from '@services/localStorage.service';
@@ -12,7 +11,6 @@ import {ModalOptions} from './styles';
 
 const CreateUserModal: React.FC<SimpleModal> = ({isOpen, onClose}) => {
   const [t] = useTranslation();
-  const navigate = useNavigate();
   const [inputValue, setInputValue] = useState<string>('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,7 +26,6 @@ const CreateUserModal: React.FC<SimpleModal> = ({isOpen, onClose}) => {
 
       await localStorageService.setItem('user', user);
       onClose();
-      navigate('room');
     }
   };
 

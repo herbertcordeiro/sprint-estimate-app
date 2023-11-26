@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 
 import {localStorageService} from '@services/localStorage.service';
-import {ButtonType} from '@models/common.models';
+import {ButtonType, Mode, User} from '@models/common.models';
 import {Button} from '@components/Button/Button';
 import {CreateUserModal} from '@pages/CreateUserModal/CreateUserModal';
 import {CreateRoomModal} from '@pages/CreateRoomModal/CreateRoomModal';
@@ -15,19 +15,30 @@ const Home: React.FC = () => {
   const [createUserModalVisible, setCreateUserModalVisible] = useState<boolean>(false);
   const [createRoomModalVisible, setCreateRoomModalVisible] = useState<boolean>(false);
   const [joinRoomModalVisible, setJoinRoomModalVisible] = useState<boolean>(false);
-  const [storedUser, setStoredUser] = useState<any>(null);
+  const [mode, setMode] = useState<Mode>();
+  const [user, setUser] = useState<User>();
 
-  const openCreateUserModal = () => setCreateUserModalVisible(true);
-  const openCreateRoomModal = () => setCreateRoomModalVisible(true);
-  const openJoinRoomModal = () => setJoinRoomModalVisible(true);
+  const showCreateRoomOrUser = () => {
+    setMode(Mode.Create);
+    user ? setCreateRoomModalVisible(true) : setCreateUserModalVisible(true);
+  };
 
-  const showCreateRoomOrUser = () => (storedUser ? openCreateRoomModal() : openCreateUserModal());
-  const showJoinRoomOrCreateUser = () => (storedUser ? openJoinRoomModal() : openCreateUserModal());
+  const showJoinRoomOrCreateUser = () => {
+    setMode(Mode.Join);
+    user ? setJoinRoomModalVisible(true) : setCreateUserModalVisible(true);
+  };
+
+  const handleExistingUser = () => {
+    setCreateUserModalVisible(false);
+    setTimeout(() => {
+      mode === Mode.Create ? setCreateRoomModalVisible(true) : setJoinRoomModalVisible(true);
+    }, 350);
+  };
 
   useEffect(() => {
-    const userFromStorage = localStorageService.getItem('user');
-    if (userFromStorage) {
-      setStoredUser(userFromStorage);
+    const hasUser = localStorageService.getItem('user');
+    if (hasUser) {
+      setUser(hasUser);
     }
   }, [createUserModalVisible]);
 
@@ -42,15 +53,12 @@ const Home: React.FC = () => {
         onClick={showJoinRoomOrCreateUser}
         width={'460px'}
       />
-      <CreateUserModal
-        isOpen={createUserModalVisible && !storedUser}
-        onClose={() => setCreateUserModalVisible(false)}
-      />
+      <CreateUserModal isOpen={createUserModalVisible && !user} onClose={handleExistingUser} />
+      <JoinRoomModal isOpen={joinRoomModalVisible} onClose={() => setJoinRoomModalVisible(false)} />
       <CreateRoomModal
         isOpen={createRoomModalVisible}
         onClose={() => setCreateRoomModalVisible(false)}
       />
-      <JoinRoomModal isOpen={joinRoomModalVisible} onClose={() => setJoinRoomModalVisible(false)} />
     </Container>
   );
 };
