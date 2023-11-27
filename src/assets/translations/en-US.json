@@ -19,5 +19,6 @@
   "create": "Create",
   "join": "Join",
   "user-created": "User created successfully!",
+  "error-creating-user": "Error creating user!",
   "room-created": "Room created successfully!"
 }

@@ -82,6 +82,12 @@
       ],
       "@services/*": [
         "./services/*"
+      ],
+      "@providers/*": [
+        "./providers/*"
+      ],
+      "@interfaces/*": [
+        "./interfaces/*"
       ]
     },
     "typeRoots": [

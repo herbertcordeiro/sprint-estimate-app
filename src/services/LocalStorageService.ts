@@ -1,4 +1,4 @@
-const localStorageService = {
+const LocalStorageService = {
   setItem: (key: string, value: any) => {
     localStorage.setItem(key, JSON.stringify(value));
   },
@@ -11,4 +11,4 @@ const localStorageService = {
   },
 };
 
-export {localStorageService};
+export {LocalStorageService};

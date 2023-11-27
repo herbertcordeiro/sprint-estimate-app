@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 
 import {useTranslation} from 'react-i18next';
 
-import {localStorageService} from '@services/localStorage.service';
+import {LocalStorageService} from '@services/LocalStorageService';
 import {ButtonType, Mode, User} from '@models/common.models';
 import {Button} from '@components/Button/Button';
 import {CreateUserModal} from '@pages/CreateUserModal/CreateUserModal';
@@ -19,27 +19,34 @@ const Home: React.FC = () => {
   const [user, setUser] = useState<User>();
 
   const showCreateRoomOrUser = () => {
+    const hasUser = LocalStorageService.getItem('user');
     setMode(Mode.Create);
-    user ? setCreateRoomModalVisible(true) : setCreateUserModalVisible(true);
+    hasUser ? setCreateRoomModalVisible(true) : setCreateUserModalVisible(true);
   };
 
   const showJoinRoomOrCreateUser = () => {
+    const hasUser = LocalStorageService.getItem('user');
     setMode(Mode.Join);
-    user ? setJoinRoomModalVisible(true) : setCreateUserModalVisible(true);
+    hasUser ? setJoinRoomModalVisible(true) : setCreateUserModalVisible(true);
   };
 
-  const handleExistingUser = () => {
+  const handleExistingUser = async () => {
     setCreateUserModalVisible(false);
-    setTimeout(() => {
+    const hasUser = await LocalStorageService.getItem('user');
+    if (hasUser) {
       mode === Mode.Create ? setCreateRoomModalVisible(true) : setJoinRoomModalVisible(true);
-    }, 350);
+    }
   };
 
   useEffect(() => {
-    const hasUser = localStorageService.getItem('user');
-    if (hasUser) {
-      setUser(hasUser);
-    }
+    const fetchUser = async () => {
+      const hasUser = await LocalStorageService.getItem('user');
+      if (hasUser) {
+        setUser(hasUser);
+      }
+    };
+
+    fetchUser();
   }, [createUserModalVisible]);
 
   return (

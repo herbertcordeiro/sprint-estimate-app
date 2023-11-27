@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 
 import {FiUser} from 'react-icons/fi';
 
-import {localStorageService} from '@services/localStorage.service';
 import {User} from '@models/common.models';
+import {LocalStorageService} from '@services/LocalStorageService';
 import SprintEstimate from 'assets/images/sprintestimate.svg';
 import {Container, Icon, Logo, UserInfo, UserName} from './styles';
 
@@ -11,7 +11,7 @@ const Header: React.FC = () => {
   const [user, setUser] = useState<User>();
 
   useEffect(() => {
-    const hasUser = localStorageService.getItem('user');
+    const hasUser = LocalStorageService.getItem('user');
     if (hasUser) {
       setUser(hasUser);
     }

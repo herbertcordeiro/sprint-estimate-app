@@ -8,6 +8,16 @@ export enum Mode {
   Join,
 }
 
+export enum UserRole {
+  ADMIN = 'ADMIN',
+  USER = 'USER',
+}
+
+export enum StoryStatus {
+  ACTIVE = 'ACTIVE',
+  COMPLETED = 'COMPLETED',
+}
+
 export type SimpleModal = {
   isOpen: boolean;
   onClose: () => void;
