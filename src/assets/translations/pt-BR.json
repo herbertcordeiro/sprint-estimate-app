@@ -20,5 +20,6 @@
   "join": "Entrar",
   "user-created": "Usuário criado com sucesso!",
   "error-creating-user": "Erro ao criar usuário!",
-  "room-created": "Sala criada com sucesso!"
+  "room-created": "Sala criada com sucesso!",
+  "error-find-room": "A sala não existe!"
 }

@@ -2,9 +2,12 @@ import React, {useState} from 'react';
 
 import {useNavigate} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
+import {useMutation} from 'react-query';
 
 import {ButtonType, SimpleModal} from '@models/common.models';
 import {showToast} from '@utils/toastUtils';
+import {IRoom} from '@interfaces/IRoom';
+import {RoomService} from '@services/RoomService';
 import {Modal} from '@components/Modal/Modal';
 import {TextInput} from '@components/TextInput/TextInput';
 import {Button} from '@components/Button/Button';
@@ -14,17 +17,31 @@ const CreateRoomModal: React.FC<SimpleModal> = ({isOpen, onClose}) => {
   const [t] = useTranslation();
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState<string>('');
+  const mutation = useMutation({
+    mutationFn: (room: IRoom) => {
+      return RoomService.createRoom(room).then(resp => resp.data);
+    },
+    onSuccess(data) {
+      handleSaveRoom(data);
+    },
+    onError(err) {
+      showToast(err?.message, 'error');
+    },
+  });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 
-  const handleSaveRoom = () => {
+  const handleSaveRoom = (room: IRoom) => {
+    onClose();
+    showToast(t('room-created'), 'success');
+    navigate(`room/${room.inviteId}`);
+  };
+
+  const handleMutation = () => {
     if (inputValue) {
-      showToast(t('room-created'), 'success');
-      onClose();
-      navigate('room');
-      // window.location.reload();
+      mutation.mutate({name: inputValue});
     }
   };
 
@@ -45,8 +62,8 @@ const CreateRoomModal: React.FC<SimpleModal> = ({isOpen, onClose}) => {
         <Button
           text={t('create')}
           width={'140px'}
-          onClick={handleSaveRoom}
-          disabled={!inputValue}
+          onClick={handleMutation}
+          disabled={!inputValue.length}
         />
         <Button
           text={t('cancel')}

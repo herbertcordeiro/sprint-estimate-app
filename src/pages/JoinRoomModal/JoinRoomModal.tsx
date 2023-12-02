@@ -2,8 +2,12 @@ import React, {useState} from 'react';
 
 import {useNavigate} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
+import {useMutation} from 'react-query';
 
 import {ButtonType, SimpleModal} from '@models/common.models';
+import {IRoom} from '@interfaces/IRoom';
+import {showToast} from '@utils/toastUtils';
+import {RoomService} from '@services/RoomService';
 import {Modal} from '@components/Modal/Modal';
 import {TextInput} from '@components/TextInput/TextInput';
 import {Button} from '@components/Button/Button';
@@ -13,15 +17,33 @@ const JoinRoomModal: React.FC<SimpleModal> = ({isOpen, onClose}) => {
   const [t] = useTranslation();
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState<string>('');
+  const mutation = useMutation({
+    mutationFn: (room: IRoom) => {
+      return RoomService.getByInviteId(room.inviteId).then(resp => resp.data);
+    },
+    onSuccess(data) {
+      handleJoinRoom(data);
+    },
+    onError() {
+      showToast(t('error-find-room'), 'error');
+    },
+  });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 
-  const handleJoinRoom = () => {
+  const handleJoinRoom = (room: IRoom) => {
+    onClose();
+    navigate(`room/${room.inviteId}`);
+  };
+
+  const handleMutation = () => {
     if (inputValue) {
-      onClose();
-      navigate('room');
+      mutation.mutate({
+        inviteId: inputValue,
+        name: '',
+      });
     }
   };
 
@@ -39,7 +61,12 @@ const JoinRoomModal: React.FC<SimpleModal> = ({isOpen, onClose}) => {
         placeholder={t('enter-room-name')}
       />
       <ModalOptions>
-        <Button text={t('join')} width={'140px'} onClick={handleJoinRoom} disabled={!inputValue} />
+        <Button
+          text={t('join')}
+          width={'140px'}
+          onClick={handleMutation}
+          disabled={!inputValue.length}
+        />
         <Button
           text={t('cancel')}
           width={'140px'}

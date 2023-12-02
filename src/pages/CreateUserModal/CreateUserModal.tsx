@@ -37,6 +37,12 @@ const CreateUserModal: React.FC<SimpleModal> = ({isOpen, onClose}) => {
     onClose();
   };
 
+  const handleMutation = () => {
+    if (inputValue) {
+      mutation.mutate({name: inputValue, role: UserRole.ADMIN});
+    }
+  };
+
   const onCloseModal = () => {
     onClose();
     setInputValue('');
@@ -54,8 +60,8 @@ const CreateUserModal: React.FC<SimpleModal> = ({isOpen, onClose}) => {
         <Button
           text={t('send')}
           width={'140px'}
-          onClick={() => mutation.mutate({name: inputValue, role: UserRole.ADMIN})}
-          disabled={!inputValue}
+          onClick={handleMutation}
+          disabled={!inputValue.length}
         />
         <Button
           text={t('cancel')}

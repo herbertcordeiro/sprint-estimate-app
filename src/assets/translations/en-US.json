@@ -20,5 +20,6 @@
   "join": "Join",
   "user-created": "User created successfully!",
   "error-creating-user": "Error creating user!",
-  "room-created": "Room created successfully!"
+  "room-created": "Room created successfully!",
+  "error-find-room": "The room doesn't exist!"
 }
