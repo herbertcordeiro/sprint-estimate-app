@@ -7,6 +7,7 @@ interface ButtonProps {
   height?: string;
   width?: string;
   text: string;
+  fontSize?: string;
   type?: ButtonType;
   disabled?: boolean;
   route?: string;
@@ -20,6 +21,7 @@ const Button: React.FC<ButtonProps> = ({
   type = ButtonType.Primary,
   disabled = false,
   route = '',
+  fontSize,
   onClick,
 }) => {
   const getButtonStyles = () => {
@@ -54,6 +56,7 @@ const Button: React.FC<ButtonProps> = ({
       width={width}
       height={height}
       disabled={disabled}
+      fontSize={fontSize}
       onClick={handleButtonClick}
     >
       {text}

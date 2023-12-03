@@ -21,5 +21,11 @@
   "user-created": "User created successfully!",
   "error-creating-user": "Error creating user!",
   "room-created": "Room created successfully!",
-  "error-find-room": "The room doesn't exist!"
+  "error-find-room": "The room doesn't exist!",
+  "stories": "Stories",
+  "add-new": "+ New",
+  "all": "All",
+  "active": "Active",
+  "completed": "Completed",
+  "invite-teammate": "Invite a teammate"
 }

@@ -5,9 +5,9 @@ import {useTranslation} from 'react-i18next';
 import {LocalStorageService} from '@services/LocalStorageService';
 import {ButtonType, Mode, User} from '@models/common.models';
 import {Button} from '@components/Button/Button';
-import {CreateUserModal} from '@pages/CreateUserModal/CreateUserModal';
-import {CreateRoomModal} from '@pages/CreateRoomModal/CreateRoomModal';
-import {JoinRoomModal} from '@pages/JoinRoomModal/JoinRoomModal';
+import {CreateUserModal} from '@pages/Modals/CreateUserModal/CreateUserModal';
+import {CreateRoomModal} from '@pages/Modals/CreateRoomModal/CreateRoomModal';
+import {JoinRoomModal} from '@pages/Modals/JoinRoomModal/JoinRoomModal';
 import {Container, SubTitle, Title} from './styles';
 
 const Home: React.FC = () => {

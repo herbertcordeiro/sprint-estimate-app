@@ -21,5 +21,11 @@
   "user-created": "Usuário criado com sucesso!",
   "error-creating-user": "Erro ao criar usuário!",
   "room-created": "Sala criada com sucesso!",
-  "error-find-room": "A sala não existe!"
+  "error-find-room": "A sala não existe!",
+  "stories": "Stories",
+  "add-new": "+ Novo",
+  "all": "Todos",
+  "active": "Ativos",
+  "completed": "Concluídos",
+  "invite-teammate": "Convide um colega de equipe"
 }

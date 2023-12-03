@@ -27,3 +27,8 @@ export type User = {
   id?: number;
   name: string;
 };
+
+export type Tab = {
+  label: string;
+  content: React.ReactNode;
+};

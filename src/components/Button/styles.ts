@@ -11,6 +11,7 @@ interface StyledLinkButtonProps {
   height: string;
   width: string;
   disabled?: boolean;
+  fontSize?: string;
 }
 
 export const StyledLinkButton = styled(Link)<StyledLinkButtonProps>`
@@ -27,7 +28,7 @@ export const StyledLinkButton = styled(Link)<StyledLinkButtonProps>`
   border: ${props => props.styles.border};
   border-radius: 6px;
   font-family: ${({theme}) => theme.FONTS.LIGHT};
-  font-size: 18px;
+  font-size: ${props => (props.fontSize ? props.fontSize : '18px')};
   &:hover {
     opacity: 0.8;
   }
