@@ -19,7 +19,7 @@ export const TextButton = styled.label<{isActived: boolean}>`
   color: ${({theme, isActived}) =>
     isActived ? theme.COLORS.PRIMARY_ACTIVE : theme.COLORS.DARK_PRIMARY_ACTIVE};
   font-family: ${({theme}) => theme.FONTS.REGULAR};
-  font-size: 16px;
+  font-size: 15px;
 `;
 
 export const TabContent = styled.div``;

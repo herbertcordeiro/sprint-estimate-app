@@ -23,7 +23,7 @@ const Header: React.FC = () => {
         <img src={SprintEstimate} height={50} />
       </Logo>
       {user && (
-        <UserInfo to={'/'}>
+        <UserInfo to={'#'}>
           <Icon>
             <FiUser size={28} />
           </Icon>

@@ -1,6 +1,6 @@
-import {CSSProperties, ChangeEvent, FC} from 'react';
+import {CSSProperties, ChangeEvent} from 'react';
 
-import {Input, Label, ModalContent} from './styles';
+import {Input, InputContent, Label, TextArea} from './styles';
 
 interface TextInputProps {
   value: string;
@@ -9,28 +9,41 @@ interface TextInputProps {
   placeholder?: string;
   style?: CSSProperties;
   disabled?: boolean;
+  isTextArea?: boolean;
 }
 
-const TextInput: FC<TextInputProps> = ({
+const TextInput: React.FC<TextInputProps> = ({
   value,
   onChange,
   label,
   placeholder,
   style,
   disabled = false,
+  isTextArea = false,
 }) => {
   return (
-    <ModalContent>
+    <InputContent>
       {label && <Label>{label}</Label>}
-      <Input
-        type="text"
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        style={style}
-        disabled={disabled}
-      />
-    </ModalContent>
+      {isTextArea ? (
+        <TextArea
+          type="text"
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          style={style}
+          disabled={disabled}
+        />
+      ) : (
+        <Input
+          type="text"
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          style={style}
+          disabled={disabled}
+        />
+      )}
+    </InputContent>
   );
 };
 

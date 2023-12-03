@@ -8,6 +8,7 @@ import {ButtonType, SimpleModal} from '@models/common.models';
 import {IRoom} from '@interfaces/IRoom';
 import {showToast} from '@utils/toastUtils';
 import {RoomService} from '@services/RoomService';
+import {LocalStorageService} from '@services/LocalStorageService';
 import {Modal} from '@components/Modal/Modal';
 import {TextInput} from '@components/TextInput/TextInput';
 import {Button} from '@components/Button/Button';
@@ -19,9 +20,9 @@ const JoinRoomModal: React.FC<SimpleModal> = ({isOpen, onClose}) => {
   const [inputValue, setInputValue] = useState<string>('');
   const mutation = useMutation({
     mutationFn: (room: IRoom) => {
-      return RoomService.getByInviteId(room.inviteId).then(resp => resp.data);
+      return RoomService.getOneByInviteId(room.inviteId).then(resp => resp.data);
     },
-    onSuccess(data) {
+    onSuccess(data: IRoom) {
       handleJoinRoom(data);
     },
     onError() {
@@ -33,8 +34,9 @@ const JoinRoomModal: React.FC<SimpleModal> = ({isOpen, onClose}) => {
     setInputValue(e.target.value);
   };
 
-  const handleJoinRoom = (room: IRoom) => {
-    onClose();
+  const handleJoinRoom = async (room: IRoom) => {
+    await LocalStorageService.setItem('room', room);
+    onCloseModal();
     navigate(`room/${room.inviteId}`);
   };
 

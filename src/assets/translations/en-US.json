@@ -27,5 +27,8 @@
   "all": "All",
   "active": "Active",
   "completed": "Completed",
-  "invite-teammate": "Invite a teammate"
+  "invite-teammate": "Invite a teammate",
+  "create-new-story": "Create new story",
+  "create-new-story-placeholder": "Enter the text of your story here.",
+  "save-add-new": "Save & Add new"
 }

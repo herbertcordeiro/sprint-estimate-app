@@ -34,7 +34,7 @@ const CreateUserModal: React.FC<SimpleModal> = ({isOpen, onClose}) => {
   const handleSaveUser = async (user: IUser) => {
     await LocalStorageService.setItem('user', user);
     showToast(t('user-created'), 'success');
-    onClose();
+    onCloseModal();
   };
 
   const handleMutation = () => {

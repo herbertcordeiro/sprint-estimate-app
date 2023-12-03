@@ -8,6 +8,7 @@ import {ButtonType, SimpleModal} from '@models/common.models';
 import {showToast} from '@utils/toastUtils';
 import {IRoom} from '@interfaces/IRoom';
 import {RoomService} from '@services/RoomService';
+import {LocalStorageService} from '@services/LocalStorageService';
 import {Modal} from '@components/Modal/Modal';
 import {TextInput} from '@components/TextInput/TextInput';
 import {Button} from '@components/Button/Button';
@@ -33,8 +34,9 @@ const CreateRoomModal: React.FC<SimpleModal> = ({isOpen, onClose}) => {
     setInputValue(e.target.value);
   };
 
-  const handleSaveRoom = (room: IRoom) => {
-    onClose();
+  const handleSaveRoom = async (room: IRoom) => {
+    await LocalStorageService.setItem('room', room);
+    onCloseModal();
     showToast(t('room-created'), 'success');
     navigate(`room/${room.inviteId}`);
   };

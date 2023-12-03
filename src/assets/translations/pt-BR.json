@@ -27,5 +27,8 @@
   "all": "Todos",
   "active": "Ativos",
   "completed": "Concluídos",
-  "invite-teammate": "Convide um colega de equipe"
+  "invite-teammate": "Convide um colega de equipe",
+  "create-new-story": "Crie uma nova story",
+  "create-new-story-placeholder": "Digite o texto da sua story aqui.",
+  "save-add-new": "Salvar e adicionar novo"
 }

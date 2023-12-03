@@ -16,6 +16,9 @@ export const theme = {
 
     DARK_OPACITY: '#00000080',
     TRANSPARENT: 'transparent',
+
+    GREEN_STATUS: '#5EA545',
+    ORANGE_STATUS: '#F89C33',
   },
 
   FONTS: {

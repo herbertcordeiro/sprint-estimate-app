@@ -30,6 +30,15 @@ export const TabsContainer = styled.div`
   flex-grow: 1;
 `;
 
+export const TabsContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  max-height: 386px;
+  margin-bottom: 26px;
+`;
+
 export const Footer = styled.div`
   display: flex;
   flex-direction: column;
