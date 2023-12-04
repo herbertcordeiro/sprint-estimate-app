@@ -1,19 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
-  padding: 80px 230px;
-  background-color: ${({theme}) => theme.COLORS.LIGHT_GRAY};
-`;
-
-export const Content = styled.div`
-  flex: 1;
   display: flex;
   flex-direction: column;
+  width: 360px;
   height: 100%;
   background-color: ${({theme}) => theme.COLORS.LIGHT_ACTIVE};
   border: 1px solid ${({theme}) => theme.COLORS.SECONDARY_GRAY};
@@ -36,20 +26,13 @@ export const Title = styled.text`
   cursor: default;
 `;
 
-export const Timer = styled.text`
-  color: ${({theme}) => theme.COLORS.PRIMARY_ACTIVE};
-  font-family: ${({theme}) => theme.FONTS.EXTRABOLD};
-  font-size: 20px;
-  cursor: default;
-`;
-
-export const Cards = styled.div`
+export const Content = styled.div`
   flex-grow: 1;
 `;
 
-export const ContentTimer = styled.div`
+export const Footer = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 120px;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 30px;
 `;

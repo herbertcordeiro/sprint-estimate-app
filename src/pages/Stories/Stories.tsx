@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 
 import {useTranslation} from 'react-i18next';
-import {useQuery} from 'react-query';
+import {useMutation, useQuery, useQueryClient} from 'react-query';
 
 import {theme} from '@styles/theme';
 import {StoryStatus, Tab} from '@models/common.models';
 import {StoryService} from '@services/StoryService';
 import {IStory} from '@interfaces/IStory';
+import {showToast} from '@utils/toastUtils';
 import {Tabs} from '@components/Tabs/Tabs';
 import {Separator} from '@components/Separator/Separator';
 import {Button} from '@components/Button/Button';
@@ -24,9 +25,22 @@ const Stories: React.FC<StoriesProps> = ({inviteId, roomId = 1}) => {
   const [t] = useTranslation();
   const invite = `http://localhost:3000/room/${inviteId}`;
   const [createStoryModalVisible, setCreateStoryModalVisible] = useState<boolean>(false);
+  const client = useQueryClient();
   const {data, isLoading} = useQuery('stories-list', () =>
     StoryService.getAllByRoomId(roomId).then(resp => resp.data),
   );
+  const deleteMutation = useMutation({
+    mutationFn: (id: number) => {
+      return StoryService.deleteStory(id).then(resp => resp.data);
+    },
+    onSuccess() {
+      showToast(t('story-deleted'), 'success');
+      client.invalidateQueries(['stories-list']);
+    },
+    onError(err) {
+      showToast(err?.message, 'error');
+    },
+  });
   const tabs: Tab[] = [
     {
       label: `${t('all')} (${countByStatus(undefined)})`,
@@ -62,6 +76,10 @@ const Stories: React.FC<StoriesProps> = ({inviteId, roomId = 1}) => {
       filteredStories = data.filter((story: IStory) => story.status === status);
     }
 
+    const handleClickDelete = id => {
+      deleteMutation.mutate(id);
+    };
+
     return (
       <TabsContent>
         {filteredStories?.map(story => (
@@ -70,6 +88,7 @@ const Stories: React.FC<StoriesProps> = ({inviteId, roomId = 1}) => {
             status={story.status}
             title={story.description}
             estimate={story.estimate}
+            onClickDelete={() => handleClickDelete(story.id)}
           />
         ))}
       </TabsContent>

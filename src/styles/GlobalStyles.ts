@@ -12,6 +12,23 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
+    scrollbar-width: thin;
+    scrollbar-color: #c0c0c0 #f0f0f0;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #c0c0c0;
+      border-radius: 6px; 
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #f0f0f0;
+      border-radius: 6px; 
+    }
   }
   
   @font-face {

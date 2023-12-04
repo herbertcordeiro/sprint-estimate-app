@@ -34,7 +34,7 @@ const CreateStoryModal: React.FC<SimpleModal> = ({isOpen, onClose}) => {
     setInputValue(e.target.value);
 
   const handleSaveStory = () => {
-    showToast('Story criada', 'success');
+    showToast(t('story-created'), 'success');
     onCloseModal();
   };
 
@@ -61,8 +61,8 @@ const CreateStoryModal: React.FC<SimpleModal> = ({isOpen, onClose}) => {
       />
       <ModalOptions>
         <Button
-          text={t('save-add-new')}
-          width={'180px'}
+          text={t('save')}
+          width={'140px'}
           onClick={handleMutation}
           disabled={!inputValue.length}
         />

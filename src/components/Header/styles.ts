@@ -42,3 +42,34 @@ export const UserName = styled.text`
   color: ${({theme}) => theme.COLORS.GRAY_ACTIVE};
   font-family: ${({theme}) => theme.FONTS.REGULAR};
 `;
+
+export const Dropdown = styled.div`
+  position: absolute;
+  background-color: ${({theme}) => theme.COLORS.LIGHT_ACTIVE};
+  width: 140px;
+  height: 48px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  z-index: 1;
+  top: 72px;
+  right: 230px;
+`;
+
+export const DropdownItem = styled(Link)`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  padding-right: 12px;
+  transition: background-color 0.35s;
+  font-family: ${({theme}) => theme.FONTS.REGULAR};
+  color: ${({theme}) => theme.COLORS.GRAY_ACTIVE};
+  text-decoration: none;
+  font-size: 14px;
+
+  &:hover {
+    background-color: ${({theme}) => theme.COLORS.DARK_LIGHT_ACTIVE};
+  }
+`;

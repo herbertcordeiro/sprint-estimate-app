@@ -1,6 +1,5 @@
 {
-  "sprint-estimate-title": "Sprint Estimate",
-  "copyright": "Copyright © 2023 SprintEstimate",
+  "copyright": "Copyright © 2023 Sprint Estimate",
   "privacy-policy": "Política de Privacidade",
   "terms-and-conditions": "Termos e Condições",
   "scrum-poker-for-agile-teams": "Scrum poker\npara equipes ágeis",
@@ -30,5 +29,11 @@
   "invite-teammate": "Convide um colega de equipe",
   "create-new-story": "Crie uma nova story",
   "create-new-story-placeholder": "Digite o texto da sua story aqui.",
-  "save-add-new": "Salvar e adicionar novo"
+  "save": "Salvar",
+  "players": "Jogadores",
+  "start": "Começar",
+  "reset": "Reiniciar",
+  "logout": "Sair",
+  "story-created": "Story criada com sucesso!",
+  "story-deleted": "Story deletada com sucesso!"
 }
